@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); -%>
+<body>
+<%- include('partials/nav'); -%>
+<div class="container">
+    <header>
+        <h1><%= title %></h1>
+        <p>Let's practice addition!  For a new set of problems refresh the page by pushing F5 on the keyboard.</p>
+    </header>
+    <section class="worksheet">
+        <% for  (let i = 0; i < 30; i++) {%>
+        <div class="equation stacked">
+            <i class="js-check material-icons animated"></i>
+            <span class="number js-numerator"><%=  Math.floor(Math.random() * 10) + 1 %></span>
+            <span class="operator">+</span>
+            <span class="number js-denominator"><%=  Math.floor(Math.random() * 10) + 1 %></span>
+            <label>
+                <input class="input answer" type="text">
+            </label>
+        </div>
+            <% }%>
+    </section>
+    <section class="results">
+        <button id="js-checkAnswers" class="btn btn-o-blue btn-fill">Check Answers<span class="icon material-icons">check_circle_outline</span></button>
+        <button id="js-resetAnswers" class="btn btn-o-red btn-fill">Reset<span class="icon material-icons">power_settings_new</span></button>
+    </section>
+    <section>
+        <div id="results" class="animated fadeInUp">
+            <h2>Results:</h2>
+            <p><span id="resultMessage"></span> Your total score is <span id="numPercentage"></span></p>
+        </div>
+    </section>
+
+</div>
+
+<%- include('partials/scripts'); -%>
+</body>
+</html>

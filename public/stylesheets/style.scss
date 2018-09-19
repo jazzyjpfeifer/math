@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700");
+
+$font-family: Karla, sans-serif;
+$font-color: #303030;
+$primary-color: #2FA4E7;
+$secondary-color: #FF5C28;
+$green-color: #00C05E;
+$btn-fill-color: #303030;
+$background-color: #fff;
+
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 120%;
+  font-family: $font-family;
+  color: $font-color;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
+  padding-right: 10px;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.worksheet {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 2em;
+}
+
+//Equation Stacked
+.equation.stacked {
+  max-width: 5em;
+  display: inline-block;
+  font-size: 160%;
+}
+
+.equation.stacked .number {
+  display: block;
+  margin-left: 1em;
+  text-align: right;
+}
+
+.equation.stacked .operator {
+  float: left;
+}
+
+.equation.stacked .equals {
+  display: block;
+  height: 0;
+  border-bottom: solid 1px #2f1530;
+  overflow: hidden;
+}
+
+.answer {
+  display: inline-block;
+  text-align: right;
+}
+
+.label {
+  text-align: right;
+}
+
+.input {
+  width: 100%;
+  font-size: 75%;
+}
+
+.results {
+  margin-top: 3em;
+}
+
+//Icons
+.js-check {
+  display: none;
+  font-size: 70%;
+  float: left;
+}
+
+//Navbar
+.nav {
+  display: flex;
+  padding: 2em;
+  font-size: 140%;
+  color: $primary-color;
+}
+
+.nav-link {
+  padding-right: 0.5em;
+  text-transform: uppercase;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.nav-items-right {
+  margin-left: auto;
+}
+
+.nav-link-toggle {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-items,
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav-items {
+    display: none;
+  }
+
+  .nav-items-right {
+    margin-left: 0;
+  }
+
+  .nav-toggle-show {
+    display: flex;
+  }
+
+  .nav-link-toggle {
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+  }
+}
+
+//FORMS
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex-outer {
+  max-width: 700px;
+  margin-top: 3em;
+}
+
+.flex-outer li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;
+}
+
+.flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-outer li label,
+.flex-outer li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.flex-outer > li > label input,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer li p {
+  margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']),
+.flex-outer li textarea {
+  padding: 15px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
+
+input {
+  border: 1px solid $primary-color;
+  opacity: 0.7;
+}
+
+input:focus {
+  outline: none;
+  border-color: $primary-color;
+  box-shadow: 0 0 5px $primary-color;
+}
+
+label {
+  text-align: left;
+  width: 125px;
+}
+
+#results {
+  display: none;
+}
+
+
+//BUTTONS
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  line-height: 3em;
+  text-transform: uppercase;
+  margin: 8px;
+  padding: 0 15px;
+  position: relative;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: .08em;
+  transition: all 1s ease;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  z-index: -1;
+  transition: all .5s ease 0s;
+}
+
+.btn:hover {
+  color: #fff;
+  text-shadow: none;
+}
+
+.btn:hover:after {
+  height: 100%;
+}
+
+.btn-o-blue {
+  border: 1px solid $primary-color;
+}
+
+.btn-o-red {
+  border: 1px solid $secondary-color;
+}
+
+
+
+.btn.btn-fill:hover {
+  border: 1px solid $font-color;
+}
+
+.btn.btn-fill:after {
+  background: $btn-fill-color;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.btn span.icon {
+  margin-left: .2em;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+
+
