@@ -11,6 +11,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const registerRouter = require('./routes/register');
 const additionRouter = require('./routes/mathRoutes/addition');
+const subtractionRouter = require('./routes/mathRoutes/subtraction');
+const multiplicationRouter = require('./routes/mathRoutes/multiplication');
+
 
 const app = express();
 
@@ -44,6 +47,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/addition', additionRouter);
+app.use('/subtraction', subtractionRouter);
+app.use('/multiplication', multiplicationRouter);
+
 
 
 // catch 404 and forward to error handler

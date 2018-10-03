@@ -6,22 +6,25 @@
 <div class="container">
     <section class="worksheet">
         <% for  (let i = 0; i < 40; i++) {%>
-        <div class="equation stacked">
-            <i class="js-check material-icons animated"></i>
-            <span class="number js-numerator"><%=  Math.floor(Math.random() * 10) + 1 %></span>
-            <span class="operator">+</span>
-            <span class="number js-denominator"><%=  Math.floor(Math.random() * 10) + 1 %></span>
-            <label>
-                <input class="input answer" type="text" onkeypress="startClock()">
-            </label>
-        </div>
-            <% }%>
+            <div class="equation stacked">
+                <i class="js-check material-icons animated"></i>
+                <%
+                    const numerator = Math.floor(Math.random() * 10) + 1
+                    const denominator = Math.floor(Math.random() * 10) + 1
+                %>
+                <span class="number js-numerator">
+                    <%= Math.max(numerator, denominator)%></span>
+                <span class="operator">-</span>
+                <span class="number js-denominator"><%= Math.min(numerator, denominator) %></span>
+                <label>
+                    <input class="input answer" type="text" onkeypress="startClock()">
+                </label>
+            </div>
+        <% }%>
     </section>
     <section class="results">
         <button id="js-checkAnswers" class="btn btn-o-blue btn-fill">Check Answers<span class="icon material-icons">check_circle_outline</span></button>
         <button id="js-resetAnswers" class="btn btn-o-red btn-fill">Reset<span class="icon material-icons">power_settings_new</span></button>
-
-
     </section>
     <section>
         <div id="results" class="animated fadeInUp">

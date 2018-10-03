@@ -16,7 +16,11 @@ let results = document.getElementById("results");
 let resultMessage = document.getElementById("resultMessage");
 let numPercentage = document.getElementById('numPercentage');
 
-
+//Timer Variables
+let minutes = 0;
+let seconds = 0;
+let tens = 0;
+let Interval;
 
 /***EVENT LISTENERS***/
 //check Answers
@@ -58,12 +62,16 @@ checkAnswerBtn.addEventListener('click', function () {
     results.classList.remove("fadeOutDown");
     results.classList.add("fadeInUp");
 
+    //stop timer
+    clearInterval(Interval)
 });
 
 //reset Button
 resetAnswersBtn.addEventListener('click', function() {
     console.log('Reset');
+    setTimeout(location.reload.bind(location), 1000);
     reset();
+
 });
 
 /*** FUNCTIONS ***/
@@ -76,12 +84,33 @@ function userAnswers() {
     return answers
 }
 
+//Get Operator
+
+
 //Correct Answers
 function correctAnswers() {
     let correctAnswers = [];
+    //defining operators
+    let operator = document.getElementsByClassName("operator");
+    let sign = operator[0].textContent;
+    let mathOperators = {
+        "+": function (x, y) {return x + y},
+        "x": function (x, y) {return x * y},
+        "-": function (x, y) {return x - y}
+    };
+
+    //determines which operator to use to calculate answer
+
     for (let i = 0; i < answers.length; i++) {
-        correctAnswers.push(answers[i].textContent = Number(numerator[i].textContent) + Number(denominator[i].textContent))
+        if (sign === "+") {
+            correctAnswers.push(answers[i].textContent = mathOperators["+"](Number(numerator[i].textContent),Number(denominator[i].textContent)))
+        } else if (sign === "x") {
+            correctAnswers.push(answers[i].textContent = mathOperators["x"](Number(numerator[i].textContent),Number(denominator[i].textContent)))
+        } else if (sign ==="-") {
+            correctAnswers.push(answers[i].textContent = mathOperators["-"](Number(numerator[i].textContent),Number(denominator[i].textContent)))
+        }
     }
+    console.log(correctAnswers);
     return correctAnswers
 }
 
@@ -107,4 +136,55 @@ function reset() {
     results.classList.remove("fadeInUp");
     results.classList.add("fadeOutDown");
 
+    //reset timmer
+    selectTens.innerHTML = "00";
+    selectSeconds.innerHTML = "00";
+    selectMinutes.innerHTML = "00";
+
+
+}
+
+//****************************
+//STOP WATCH
+//****************************
+
+
+//SELECTORS
+let selectTens = document.getElementById("tens");
+let selectSeconds = document.getElementById("seconds");
+let selectMinutes = document.getElementById("minutes");
+
+function startClock() {
+    clearInterval(Interval);
+    Interval = setInterval(startTimer, 10);
+}
+
+function startTimer() {
+    tens++;
+
+    if(tens < 9) {
+        selectTens.innerHTML = "0" + tens;
+    }
+
+    if(tens > 9) {
+        selectTens.innerHTML = tens;
+    }
+
+    if(tens > 99) {
+        seconds++;
+        selectSeconds.innerHTML = "0" + seconds;
+        tens = 0;
+        selectTens.innerHTML = "0" + 0;
+    }
+
+    if (seconds > 9){
+        selectSeconds.innerHTML = seconds;
+    }
+
+    if(seconds > 59) {
+        minutes++;
+        selectMinutes.innerHTML = "0" + minutes;
+        seconds = 0;
+        selectSeconds.innerHTML = seconds;
+    }
 }
