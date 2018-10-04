@@ -28,14 +28,33 @@ a {
   .worksheet {
     display: grid;
     grid-template-columns: repeat(8, 1fr); } }
+
 @media (max-width: 780px) {
   .worksheet {
     display: grid;
     grid-template-columns: repeat(6, 1fr); } }
+
 @media (max-width: 550px) {
   .worksheet {
     display: grid;
     grid-template-columns: repeat(4, 1fr); } }
+
+.hero {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  color: #ffff;
+  border-radius: 0.3rem;
+  background-image: linear-gradient(rgba(0, 0, 80, 0.5), rgba(0, 0, 0, 0.5)), url("/images/hero.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; }
+
+@media (min-width: 576px) {
+  .hero {
+    padding: 4rem 2rem; } }
+
 .columns-3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -45,6 +64,7 @@ a {
   .columns-3 {
     display: flex;
     flex-direction: column; } }
+
 .bold {
   font-weight: bold; }
 
@@ -119,21 +139,18 @@ a {
   .nav-items,
   .nav {
     flex-direction: column; }
-
   .nav-items {
     display: none; }
-
   .nav-items-right {
     margin-left: 0; }
-
   .nav-toggle-show {
     display: flex; }
-
   .nav-link-toggle {
     align-self: flex-end;
     display: initial;
     position: absolute;
     cursor: pointer; } }
+
 .flex-outer,
 .flex-inner {
   list-style-type: none;
