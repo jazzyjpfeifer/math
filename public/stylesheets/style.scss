@@ -15,6 +15,9 @@ body {
   font-size: 110%;
   font-family: $font-family;
   color: $font-color;
+  background:url("/images/bg.svg");
+  background-size: cover;
+  height: 60%;
 }
 
 .container {
@@ -65,14 +68,11 @@ a {
 .hero {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  color: #ffff;
   border-radius: 0.3rem;
-  background-image: linear-gradient(rgba(0, 0, 80, 0.5), rgba(0, 0, 0, 0.5)), url("/images/hero.jpg");
   height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  color: $font-color;
+  text-transform: uppercase;
+
 }
 
 
