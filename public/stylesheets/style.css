@@ -5,9 +5,9 @@ body {
   font-size: 110%;
   font-family: Karla, sans-serif;
   color: #303030;
-  background: url("/images/bg.svg");
+  background: url("../images/bg.svg");
   background-size: cover;
-  height: 60%; }
+  background-repeat: no-repeat; }
 
 .container {
   margin: 0 auto;
@@ -20,6 +20,9 @@ body {
 a {
   color: #2FA4E7;
   text-decoration: none; }
+
+.level {
+  margin-bottom: 1.5em; }
 
 .worksheet {
   display: grid;
@@ -98,6 +101,9 @@ a {
 #results {
   margin-left: 1em; }
 
+#balloons {
+  display: none; }
+
 .timer {
   display: inline;
   margin: 0 auto; }
@@ -128,6 +134,16 @@ a {
 
 .nav-link-toggle {
   display: none; }
+
+.nav-link-brand {
+  color: #fff;
+  vertical-align: baseline; }
+
+.home-icon {
+  position: relative;
+  top: .125em;
+  font-size: 120%;
+  margin-right: .2em; }
 
 @media only screen and (max-width: 768px) {
   .nav-items,

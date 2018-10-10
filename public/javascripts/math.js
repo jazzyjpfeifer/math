@@ -15,6 +15,7 @@ let checkIcons = document.querySelectorAll(".js-check");
 let results = document.getElementById("results");
 let resultMessage = document.getElementById("resultMessage");
 let numPercentage = document.getElementById('numPercentage');
+let balloons = document.getElementById("balloons");
 
 //Timer Variables
 let minutes = 0;
@@ -51,16 +52,19 @@ checkAnswerBtn.addEventListener('click', function () {
     console.log(numCorrect, numIncorrect, totalProblems,finalScore);
 
     if (numCorrect === totalProblems) {
-        resultMessage.textContent = 'Congratulations!'
+        resultMessage.textContent = 'Congratulations!';
+        balloons.style.display = "inline-block";
     } else {
         resultMessage.textContent = "Oops, you missed " + numIncorrect + " out of " + totalProblems
     }
 
     numPercentage.textContent = Math.round(finalScore * 100).toFixed(0) + '%';
-    results.style.display = "block";
+    results.style.display = "inline-block";
 
     results.classList.remove("fadeOutDown");
     results.classList.add("fadeInUp");
+
+
 
     //stop timer
     clearInterval(Interval)
