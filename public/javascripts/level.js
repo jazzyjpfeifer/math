@@ -6,22 +6,19 @@ let levelDenominator = document.getElementsByClassName("js-denominator");
 
 increaseLevel.addEventListener('click', function () {
     let level = parseInt(levelNumber.textContent);
-    let max_level = 3;
+    let max_level = 10;
     level++;
     levelNumber.textContent = Math.min(level, max_level);
-
-    console.log(level);
-
-    if (level === 2) {
+    if (level < 8) {
         for (let i = 0; i < levelNumerator.length; i++) {
             let random = Math.floor(Math.random() * 9) + 1;
-            levelNumerator[i].innerHTML = levelNumerator[i].textContent + random}
+            levelNumerator[i].innerHTML = Number(levelNumerator[i].textContent) + random}
 
-    } else if (level === 3) {
+    } else if (level > 7 && level < 11 ) {
 
         for (let i = 0; i < levelDenominator.length; i++) {
             let random = Math.floor(Math.random() * 9) + 1;
-            levelDenominator[i].innerHTML = levelDenominator[i].textContent + random;}
+            levelDenominator[i].innerHTML = Number(levelDenominator[i].textContent) + random;}
     }
 
 

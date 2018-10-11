@@ -2,8 +2,9 @@
 
 $font-family: Karla, sans-serif;
 $font-color: #303030;
-$primary-color: #2FA4E7;
+$primary-color: #3fa9f5;
 $secondary-color: #FF5C28;
+$card-color: #ffc628;
 $green-color: #00C05E;
 $btn-fill-color: #303030;
 $background-color: #fff;
@@ -16,7 +17,7 @@ body {
   font-family: $font-family;
   color: $font-color;
   background:url("../images/bg.svg");
-  background-size: cover;
+  background-size: auto 1100px;
   background-repeat: no-repeat;
 
 }
@@ -92,6 +93,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
+  grid-gap: 1.5em;
 }
 
 @media (max-width: 768px) {
@@ -100,6 +102,46 @@ a {
     flex-direction: column;
   }
 
+}
+
+.card {
+  height: 10em;
+  color: #fff;
+  background: $card-color;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.27);
+  transition: 0.5s;
+
+}
+
+@media (max-width: 780px ) {
+  .card {
+    height: 8em;
+    box-shadow: none;
+    margin: 1em;
+  }
+
+  .card:hover {
+    box-shadow: none;
+  }
+
+}
+
+.card h1 {
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.card a {
+  font-size: 150%;
+  transition: 0.5s;
+}
+
+.card a:hover {
+  color: darken($primary-color, 20%);
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.66);
 }
 
 .bold {
@@ -117,7 +159,6 @@ a {
 
 .equation.stacked .number {
   display: block;
-  margin-left: 1em;
   text-align: right;
 }
 

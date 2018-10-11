@@ -6,7 +6,7 @@ body {
   font-family: Karla, sans-serif;
   color: #303030;
   background: url("../images/bg.svg");
-  background-size: cover;
+  background-size: auto 1100px;
   background-repeat: no-repeat; }
 
 .container {
@@ -18,7 +18,7 @@ body {
   text-transform: uppercase; }
 
 a {
-  color: #2FA4E7;
+  color: #3fa9f5;
   text-decoration: none; }
 
 .level {
@@ -56,12 +56,42 @@ a {
 .columns-3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  text-align: center; }
+  text-align: center;
+  grid-gap: 1.5em; }
 
 @media (max-width: 768px) {
   .columns-3 {
     display: flex;
     flex-direction: column; } }
+.card {
+  height: 10em;
+  color: #fff;
+  background: #ffc628;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.27);
+  transition: 0.5s; }
+
+@media (max-width: 780px) {
+  .card {
+    height: 8em;
+    box-shadow: none;
+    margin: 1em; }
+
+  .card:hover {
+    box-shadow: none; } }
+.card h1 {
+  text-transform: uppercase;
+  transition: 0.5s; }
+
+.card a {
+  font-size: 150%;
+  transition: 0.5s; }
+
+.card a:hover {
+  color: #0a76c4; }
+
+.card:hover {
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.66); }
+
 .bold {
   font-weight: bold; }
 
@@ -72,7 +102,6 @@ a {
 
 .equation.stacked .number {
   display: block;
-  margin-left: 1em;
   text-align: right; }
 
 .equation.stacked .operator {
@@ -120,7 +149,7 @@ a {
   display: flex;
   padding: 2em;
   font-size: 140%;
-  color: #2FA4E7; }
+  color: #3fa9f5; }
 
 .nav-link {
   padding-right: 0.5em;
@@ -213,13 +242,13 @@ a {
   width: 100px; }
 
 input {
-  border: 1px solid #2FA4E7;
+  border: 1px solid #3fa9f5;
   opacity: 0.7; }
 
 input:focus {
   outline: none;
-  border-color: #2FA4E7;
-  box-shadow: 0 0 5px #2FA4E7; }
+  border-color: #3fa9f5;
+  box-shadow: 0 0 5px #3fa9f5; }
 
 label {
   text-align: left;
@@ -262,7 +291,7 @@ label {
   height: 100%; }
 
 .btn-o-blue {
-  border: 1px solid #2FA4E7; }
+  border: 1px solid #3fa9f5; }
 
 .btn-o-red {
   border: 1px solid #FF5C28; }
