@@ -81,8 +81,6 @@ a {
 
 }
 
-
-
 @media (min-width: 576px) {
   .hero {
     padding: 4rem 2rem;
@@ -113,19 +111,6 @@ a {
 
 }
 
-@media (max-width: 780px ) {
-  .card {
-    height: 8em;
-    box-shadow: none;
-    margin: 1em;
-  }
-
-  .card:hover {
-    box-shadow: none;
-  }
-
-}
-
 .card h1 {
   text-transform: uppercase;
   transition: 0.5s;
@@ -144,11 +129,22 @@ a {
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.66);
 }
 
+@media (max-width: 780px ) {
+  .card {
+    height: 8em;
+    box-shadow: none;
+    margin: 1em;
+  }
+
+  .card:hover {
+    box-shadow: none;
+  }
+
+}
+
 .bold {
   font-weight: bold;
 }
-
-
 
 //Equation Stacked
 .equation.stacked {
@@ -193,12 +189,187 @@ a {
 
 #results {
   margin-left: 1em;
-
 }
 
-#balloons {
+.balloons {
   display: none;
 }
+
+.balloon {
+  position: fixed;
+  overflow: hidden;
+  transform: translateY(0px);
+  animation: float 10s ease-in-out infinite;
+  opacity: .5;
+}
+
+#balloon2 {
+  margin-left: 4em;
+}
+
+#balloon3 {
+  margin-top: 2em;
+  margin-left: 8em;
+}
+
+#balloon4 {
+  margin-top: 3.5em;
+  margin-left: 9em;
+}
+
+#balloon5 {
+  margin-top: 5em;
+  margin-left: 7em;
+}
+
+#balloon6 {
+  margin-top: 6em;
+  margin-left: 11em;
+}
+
+//Balloon Animation
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-800px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-1200px);
+    opacity: 0;
+  }
+}
+
+//Fireworks Animation
+.firework {
+  display: none;
+}
+
+
+$particles: 200;
+$width: 1400;
+$height: 1200;
+
+// Create the explosion...
+$box-shadow: ();
+$box-shadow2: ();
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+  random($width)-$width / 3 + px
+  random($height)-$height / 1.2 + px
+  hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2, 0 0 #fff
+}
+@mixin keyframes ($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin animation-delay ($settings) {
+  -moz-animation-delay: $settings;
+  -webkit-animation-delay: $settings;
+  -o-animation-delay: $settings;
+  -ms-animation-delay: $settings;
+  animation-delay: $settings;
+}
+
+@mixin animation-duration ($settings) {
+  -moz-animation-duration: $settings;
+  -webkit-animation-duration: $settings;
+  -o-animation-duration: $settings;
+  -ms-animation-duration: $settings;
+  animation-duration: $settings;
+}
+
+@mixin animation ($settings) {
+  -moz-animation: $settings;
+  -webkit-animation: $settings;
+  -o-animation: $settings;
+  -ms-animation: $settings;
+  animation: $settings;
+}
+
+@mixin transform ($settings) {
+  transform: $settings;
+  -moz-transform: $settings;
+  -webkit-transform: $settings;
+  -o-transform: $settings;
+  -ms-transform: $settings;
+}
+
+
+.firework > .before, .firework > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: $box-shadow2;
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+}
+
+.firework > .after {
+  @include animation-delay((1.25s, 1.25s, 1.25s));
+  @include animation-duration((1.25s, 1.25s, 6.25s));
+}
+
+@include keyframes(bang) {
+  to {
+    box-shadow:$box-shadow;
+  }
+}
+
+@include keyframes(gravity)  {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}
+
+@include keyframes(position) {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%
+  }
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
+
+
+//Timer
+
 
 .timer {
   display: inline;
