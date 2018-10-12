@@ -6,22 +6,14 @@
 <div class="container">
     <header>
         <h1><%= title %></h1>
-        <p>Sign up and track your progress.  It's easy and fun!</p>
+        <p>Please sign in below.</p>
     </header>
     <section>
-        <form action="/register" method="post">
+        <form action="/login" method="post">
             <ul class="flex-outer">
-                <li>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" placeholder="Enter name">
-                </li>
                 <li>
                     <label for="username">User Name:</label>
                     <input type="text" name="username" id="username" placeholder="Enter username">
-                </li>
-                <li>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" placeholder="Enter email">
                 </li>
                 <li>
                     <label for="password">Password</label>
@@ -30,8 +22,6 @@
                 <li>
                     <button type="submit" class="btn btn-o-blue btn-fill">Submit</button>
                 </li>
-
-
             </ul>
 
         </form>
